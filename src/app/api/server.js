@@ -1,4 +1,4 @@
-import { createRequestHandler } from "../build/server/index.js";
+import { createRequestHandler } from "./server/index.js";
 
 export default async function handler(req, res) {
   try {
