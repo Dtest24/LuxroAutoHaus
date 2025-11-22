@@ -31,7 +31,8 @@ export default defineConfig({
   build: {
     target: 'esnext', // allows top-level await
     ssr: false,
-    outDir: 'build/client',
+    outDir: 'build',
+    emptyOutDir: true,
   },
 
   logLevel: 'info',
@@ -41,10 +42,10 @@ export default defineConfig({
     restartEnvFileChange(),
 
     // Hono SSR server for React Router
-    // reactRouterHonoServer({
-    //   serverEntryPoint: './__create/index.ts',
-    //   runtime: 'node',
-    // }),
+    reactRouterHonoServer({
+      serverEntryPoint: './__create/index.ts',
+      runtime: 'node',
+    }),
 
     // Babel for styled-jsx
     babel({
