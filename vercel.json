@@ -1,12 +1,11 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "build/**",
-      "use": "@vercel/static"
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": "build/client",
+  "functions": {
+    "api/server.js": {
+      "runtime": "nodejs20.x"
     }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  },
+  "framework": null
 }
