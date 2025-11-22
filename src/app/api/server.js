@@ -1,8 +1,15 @@
-import { createRequestHandler } from "./server/index.js";
+import { createRequestHandler } from "@react-router/dev/standalone";
+import path from "node:path";
+
+// Path to your build folder
+const BUILD_DIR = path.resolve("./build");
 
 export default async function handler(req, res) {
   try {
-    createRequestHandler(req, res);
+    createRequestHandler({
+      build: BUILD_DIR,
+      mode: process.env.NODE_ENV
+    })(req, res);
   } catch (error) {
     console.error(error);
     res.status(500).send("Server Error");
