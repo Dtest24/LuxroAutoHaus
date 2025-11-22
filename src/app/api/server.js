@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   try {
     createRequestHandler({
       build: BUILD_DIR,
-      mode: process.env.NODE_ENV
+      mode: process.env.NODE_ENV || "production",
     })(req, res);
   } catch (error) {
     console.error(error);
